@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -17,13 +18,16 @@ import java.io.OutputStreamWriter;
 public class MainActivity extends AppCompatActivity {
 
     Button btnStore,btnClear,btnRetrieve;
-    EditText etText;
+    EditText e1,e2;
+    TextView t1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        etText=(EditText)findViewById(R.id.e);
-        btnStore=(Button)findViewById(R.id.btn_store);
+        e1=(EditText)findViewById(R.id.e1);
+        e2=findViewById(R.id.e2);
+        btnStore=(Button)findViewById(R.id.btn1);
+        t1=findViewById(R.id.t1);
     }
 
 
@@ -63,15 +67,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View v) {
         switch(v.getId()) {
-            case R.id.btn_store:
-                writeToFile(etText.getText().toString());
+            case R.id.btn1:
+                writeToFile(e2.getText().toString());
                 break;
-            case R.id.btnRetrieve:
-                etText.setText(getFileContent());
+            case R.id.btn2:
+                t1.setText(getFileContent());
                 break;
-            case R.id.btnClear:
-                etText.setText("");
-                break;
+
         }
     }
 }
